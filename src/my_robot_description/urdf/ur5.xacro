@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="leo" xmlns:xacro="http://ros.org/wiki/xacro">
+
+ 
+
+  <!-- Include Robot Macros -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5_macro.xacro"/>
+ 
+
+
+    
+  
+  <xacro:ur5 prefix="robot1_"/>
+  
+
+  
+
+ 
+  
+
+
+
+
+  
+
+  <!-- Tables and camera can be included here, omitted for brevity -->
+</robot>
+
+    

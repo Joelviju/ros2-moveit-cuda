@@ -1,0 +1,27 @@
+# ROS 2
+build/
+install/
+log/
+
+# Colcon
+.colcon/
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Temporary files
+/tmp/
+*.urdf
+
+# CUDA
+*.o
+*.so
+*.a
+
+# OS
+.DS_Store
+Thumbs.db
