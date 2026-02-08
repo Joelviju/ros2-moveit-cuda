@@ -59,4 +59,4 @@ RUN rosdep update
 # Source ROS
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 
-WORKDIR /ros2_CUDA
+WORKDIR /workspaces

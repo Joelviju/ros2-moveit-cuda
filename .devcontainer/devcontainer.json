@@ -10,5 +10,6 @@
     "-e", "PULSE_SERVER",
     "-v", "/mnt/wslg:/mnt/wslg"
   ],
-  "workspaceFolder": "/ros2_CUDA"
+   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+
 }
