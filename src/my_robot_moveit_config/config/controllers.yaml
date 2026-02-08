@@ -1,0 +1,20 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - robot1_shoulder_pan_joint
+      - robot1_shoulder_lift_joint
+      - robot1_elbow_joint
+      - robot1_wrist_1_joint
+      - robot1_wrist_2_joint
+      - robot1_wrist_3_joint
