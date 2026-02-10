@@ -5,7 +5,8 @@
 
   <!-- Include Robot Macros -->
   <xacro:include filename="$(find ur_description)/urdf/ur5_macro.xacro"/>
- 
+  <xacro:include
+    filename="$(find my_robot_moveit_config)/config/ros2_control_ignition.xacro"/>
 
 
     
@@ -21,7 +22,10 @@
 
 
 
-  
+   <xacro:leo_ros2_control_ignition
+    name="Robot1System"
+    initial_positions_file="$(find my_robot_moveit_config)/config/initial_positions.yaml"/>
+
 
   <!-- Tables and camera can be included here, omitted for brevity -->
 </robot>

@@ -114,3 +114,35 @@ Detailed benchmarking and analysis
 ## Motivation
 
 This project emphasizes system level performance analysis and practical integration over algorithmic reinvention aiming to provide realistic insights into GPU acceleration for real world robotic motion planning pipelines.
+
+<gazebo>
+  <plugin
+    name="ign_ros2_control::IgnitionROS2ControlPlugin"
+    filename="ign_ros2_control-system">
+    <parameters>
+      $(find my_robot_moveit_config)/config/controllers.yaml
+    </parameters>
+  </plugin>
+</gazebo>
+
+```bash
+## Gazebo (Ignition) + ros2_control Setup (ROS 2 Humble)
+
+This project uses **Ignition Gazebo (Fortress)** with **ros2_control** for simulation.
+
+---
+
+### 1. Required Packages
+
+Install Ignition Gazebo + ROS 2 control integrations:
+
+```bash
+sudo apt update
+sudo apt install -y \
+  ignition-fortress \
+  ros-humble-ros-gz \
+  ros-humble-gz-ros2-control \
+  ros-humble-ign-ros2-control \
+  ros-humble-controller-manager \
+  ros-humble-ros2controlcli
+```
