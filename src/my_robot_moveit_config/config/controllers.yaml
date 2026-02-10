@@ -9,6 +9,11 @@ controller_manager:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
+joint_state_broadcaster:
+  ros__parameters:
+    publish_rate: 50
+
+
 arm_controller:
   ros__parameters:
     joints:
@@ -18,3 +23,10 @@ arm_controller:
       - robot1_wrist_1_joint
       - robot1_wrist_2_joint
       - robot1_wrist_3_joint
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
