@@ -1,4 +1,4 @@
-# ROS2 MoveIt CUDA Acceleration
+![2026-02-2322-42-52-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/5ea52b4a-62da-408a-8297-a806edd75a7a)# ROS2 MoveIt CUDA Acceleration
 
 GPU-accelerated motion planning evaluation for industrial robots using ROS 2 and MoveIt 2.
 
@@ -13,6 +13,7 @@ Motion planning for industrial robotic manipulators is computationally expensive
 This project explores whether GPU acceleration using CUDA can provide measurable and reproducible performance improvements by accelerating the state evaluation stage of the planning pipeline, without modifying core planner algorithms.
 
 ---
+![2026-02-2322-42-52-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/c7596b11-3e2f-4967-b89d-691d6a4016f0)
 
 ## Key Goals
 
