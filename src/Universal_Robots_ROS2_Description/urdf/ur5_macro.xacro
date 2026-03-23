@@ -4,7 +4,7 @@
   <xacro:macro name="ur5" params="prefix">
 
     <!-- create link fixed to the "world" -->
-    <link name="${prefix}world"/>
+    
     <!-- links -  main serial chain -->
     <link name="${prefix}base_link"/>
     <link name="${prefix}base_link_inertia">
@@ -141,11 +141,11 @@
       </inertial>
     </link>
     <!-- base_joint fixes base_link to the environment -->
-    <joint name="${prefix}base_joint" type="fixed">
+    <!--<joint name="${prefix}base_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <parent link="${prefix}world"/>
       <child link="${prefix}base_link"/>
-    </joint>
+    </joint> -->
     <!-- joints - main serial chain -->
     <joint name="${prefix}base_link-base_link_inertia" type="fixed">
       <parent link="${prefix}base_link"/>

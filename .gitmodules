@@ -1,3 +1,8 @@
 [submodule "src/src/ur_description"]
 	path = src/src/ur_description
 	url = https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
+[submodule "src/src/franka_description"]
+	path = src/src/franka_description
+	url = https://github.com/frankarobotics/franka_description.git
+[submodule "src/franka_description"]
+	path = src/franka_description

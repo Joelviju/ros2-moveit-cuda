@@ -19,10 +19,10 @@
   </group>
 
   <!-- Tool frame (no gripper attached) -->
-  <end_effector
+  <!--<end_effector
     name="tool0"
     parent_link="robot1_tool0"
-    group="manipulator"/>
+    group="manipulator"/> -->
 
   <!-- Disable adjacent self-collisions -->
   <disable_collisions link1="robot1_base_link" link2="robot1_base_link_inertia" reason="Adjacent"/>

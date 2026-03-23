@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot name="leo" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name="world"/>
+
+  <!-- Include macros -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5_macro.xacro"/>
+  <xacro:include filename="$(find my_robot_description)/urdf/utils_1.xacro"/>
+  <xacro:include filename="$(find my_robot_description)/urdf/franka_hand_1.xacro"/>
+
+  <!-- Load UR5 -->
+  <xacro:ur5 prefix="robot1_"/>
+
+  <!-- If needed: create tool0 joint -->
+  <joint name="robot1_tool0_fixed" type="fixed">
+    <parent link="robot1_wrist_3_link"/>
+    <child link="robot1_tool0"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Attach Franka Hand -->
+  <xacro:franka_hand connected_to="robot1_tool0" arm_id="robot1_arm" gazebo="true"/>
+
+  <!-- Position UR5 in world -->
+  <joint name="robot1_world_to_world" type="fixed">
+    <parent link="world"/>
+    <child link="robot1_world"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="robot1_joint_to_world" type="fixed">
+    <parent link="robot1_world"/>
+    <child link="robot1_base_link"/>
+    <origin xyz="0 0 0.75" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Add table and camera (unchanged from yours) -->
+  <!-- [ table + camera definitions as-is ] -->
+
+</robot>
