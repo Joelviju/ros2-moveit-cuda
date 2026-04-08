@@ -96,5 +96,5 @@ plt.close()
 # ----------------------------
 # DONE
 # ----------------------------
-print(f"✅ All plots saved in '{output_dir}' folder")
+print(f"All plots saved in '{output_dir}' folder")
 

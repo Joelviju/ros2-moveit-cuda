@@ -1,4 +1,4 @@
-#include <cuda_runtime.h>
+/*#include <cuda_runtime.h>
 #include <vector>
 
 struct Sphere
@@ -86,4 +86,72 @@ bool gpuCollisionCheck(
         if (r == 1) return true;
 
     return false;
+} */
+
+// gpu_collision.cu
+// gpu_collision.cu
+
+#include "gpu_collision.hpp"
+#include <cuda_runtime.h>
+
+// ============================================================
+// 🔥 KERNEL
+// ============================================================
+
+__global__
+void collisionKernelBatch(
+    Sphere* states,
+    Sphere* obstacles,
+    bool* results,
+    int N_states,
+    int N_links,
+    int N_obs)
+{
+    int state_id = blockIdx.x;
+    int link_id  = threadIdx.x;
+
+    if (state_id >= N_states || link_id >= N_links) return;
+
+    Sphere link = states[state_id * N_links + link_id];
+
+    for (int o = 0; o < N_obs; o++) {
+        Sphere obs = obstacles[o];
+
+        float dx = link.x - obs.x;
+        float dy = link.y - obs.y;
+        float dz = link.z - obs.z;
+
+        float dist2 = dx*dx + dy*dy + dz*dz;
+        float rad   = link.radius + obs.radius;
+
+        if (dist2 < rad * rad) {
+            results[state_id] = true;
+            return;
+        }
+    }
+}
+
+// ============================================================
+// 🚀 LAUNCHER (IMPORTANT)
+// ============================================================
+
+void launchCollisionKernel(
+    Sphere* d_states,
+    Sphere* d_obs,
+    bool* d_results,
+    int N_states,
+    int N_links,
+    int N_obs)
+{
+    dim3 blocks(N_states);
+    dim3 threads(N_links);
+
+    collisionKernelBatch<<<blocks, threads>>>(
+        d_states,
+        d_obs,
+        d_results,
+        N_states,
+        N_links,
+        N_obs
+    );
 }
